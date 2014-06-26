@@ -17,7 +17,7 @@ module ActiveModelUnion
       # @option options [Integer] page (1) page number to show
       def paginate(options={})
         populate_pagination_attributes_from_options(options)
-        limit(per_page, page * per_page)
+        limit(per_page, (page - 1) * per_page)
         self
       end
 
