@@ -1,8 +1,8 @@
 module ActiveModelUnion
   class Base
-    include ActiveModelUnion::Base::UntabledModel
-    include ActiveModelUnion::Base::QueryMethods
-    include ActiveModelUnion::Base::ArResource
+    include ActiveModelUnion::BaseMethods::UntabledModel
+    include ActiveModelUnion::BaseMethods::QueryMethods
+    include ActiveModelUnion::BaseMethods::ArResource
 
     attr_accessor :type, :id
 

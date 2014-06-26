@@ -1,7 +1,8 @@
 require 'active_support/concern'
+require 'active_model'
 
 module ActiveModelUnion
-  class Base
+  module BaseMethods
     module UntabledModel
       extend ActiveSupport::Concern
 

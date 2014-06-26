@@ -7,8 +7,7 @@ Coveralls.wear!
 require 'rspec'
 require 'rack/test'
 require 'webmock/rspec'
-require 'omniauth'
-require 'omniauth-redbooth'
+require 'active_model_union'
 
 RSpec.configure do |config|
   config.include WebMock::API

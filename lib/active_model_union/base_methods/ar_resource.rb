@@ -1,7 +1,7 @@
 require 'active_support/concern'
 
 module ActiveModelUnion
-  class Base
+  module BaseMethods
     module ArResource
       extend ActiveSupport::Concern
 

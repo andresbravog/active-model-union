@@ -4,16 +4,26 @@ module ActiveModelUnion
   extend ActiveSupport::Autoload
 
   autoload :Base
-  autoload 'Base::ArResource'
-  autoload 'Base::QueryMethods'
-  autoload 'Base::UntabledModel'
+
+  module BaseMethods
+    extend ActiveSupport::Autoload
+
+    autoload :ArResource
+    autoload :QueryMethods
+    autoload :UntabledModel
+  end
 
   autoload :Relation
-  autoload 'Relation::All'
-  autoload 'Relation::Count'
-  autoload 'Relation::Joins'
-  autoload 'Relation::Limit'
-  autoload 'Relation::Order'
-  autoload 'Relation::Paginate'
-  autoload 'Relation::Where'
+
+  module RelationMethods
+    extend ActiveSupport::Autoload
+
+    autoload :All
+    autoload :Count
+    autoload :Joins
+    autoload :Limit
+    autoload :Order
+    autoload :Paginate
+    autoload :Where
+  end
 end

@@ -1,12 +1,12 @@
 module ActiveModelUnion
   class Relation
-    include ActiveModelUnion::Relation::Where
-    include ActiveModelUnion::Relation::Order
-    include ActiveModelUnion::Relation::All
-    include ActiveModelUnion::Relation::Joins
-    include ActiveModelUnion::Relation::Count
-    include ActiveModelUnion::Relation::Limit
-    include ActiveModelUnion::Relation::Paginate
+    include ActiveModelUnion::RelationMethods::Where
+    include ActiveModelUnion::RelationMethods::Order
+    include ActiveModelUnion::RelationMethods::All
+    include ActiveModelUnion::RelationMethods::Joins
+    include ActiveModelUnion::RelationMethods::Count
+    include ActiveModelUnion::RelationMethods::Limit
+    include ActiveModelUnion::RelationMethods::Paginate
 
     attr_accessor :union_models, :union_relations, :union_attributes,  :union_query, :model
 

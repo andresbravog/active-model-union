@@ -1,16 +1,16 @@
 require 'active_support/concern'
 
 module ActiveModelUnion
-  class Relation
-    module Joins
+  class RelationMethods
+    module Where
       extend ActiveSupport::Concern
 
       # Delegates the function to each one off the union
       # relations with the given args
       #
       # @param args accepts the same args that the active record one
-      def joins(*args)
-        execute_in_union_relations(union_relations, :joins, *args)
+      def where(*args)
+        execute_in_union_relations(union_relations, :where, *args)
         self
       end
 
@@ -19,8 +19,8 @@ module ActiveModelUnion
       #
       # @param relations [Array<Symbol>] relations to executed in
       # @param args accepts the same args that the active record one
-      def joins_in(relations, *args)
-        execute_in_union_relations([*relations], :joins, *args)
+      def where_in(relations, *args)
+        execute_in_union_relations([*relations], :where, *args)
         self
       end
     end
