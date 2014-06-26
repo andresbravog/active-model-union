@@ -1,7 +1,7 @@
 require 'active_support/concern'
 
 module ActiveModelUnion
-  class RelationMethods
+  module RelationMethods
     module All
       extend ActiveSupport::Concern
 
