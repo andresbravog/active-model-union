@@ -57,10 +57,10 @@ module ActiveModelUnion
         model_attributes = relation.new.attributes.keys
         select_sentence_for_model = union_attributes_for_select(relation, model_attributes)
         select_sentence_for_model << "\'#{union_model.to_s}\' as \'type\'"
-        union_relations[union_model] = relation.select(select_sentence_for_model.join(','))
+        union_relations[union_model] = relation.select(select_sentence_for_model.join(', '))
       end
     end
-    
+
     # Creates the select sentences for the given union_attributes and relation
     # depending if the given relation responds to the attribute or not
     #
@@ -68,9 +68,9 @@ module ActiveModelUnion
     def union_attributes_for_select(relation, model_attributes)
       union_attributes.map do |attribute_name|
         if model_attributes.include? attribute_name.to_s
-          "#{relation.table_name}.#{attribute_name.to_s}"
+          "`#{relation.table_name}`.`#{attribute_name.to_s}` as '#{attribute_name.to_s}'"
         else
-          ' null'
+          " null as '#{attribute_name.to_s}'"
         end
       end
     end
