@@ -24,9 +24,9 @@ module ActiveModelUnion
       # @param offset [Integer] (optional) offset in the search
       # @return [String]
       def limit_union_sentence(max, offset=nil)
-        @union_query ||= ""
-        @union_query += " LIMIT #{max} "
-        @union_query += " OFFSET #{offset} " if offset
+        @union_query_elements ||= {}
+        @union_query_elements[:limit] = Arel::Nodes::Limit.new(max.to_i)
+        @union_query_elements[:offset] = Arel::Nodes::Offset.new(offset.to_i) if offset
       end
     end
   end

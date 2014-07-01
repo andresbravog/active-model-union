@@ -8,7 +8,7 @@ module ActiveModelUnion
     include ActiveModelUnion::RelationMethods::Limit
     include ActiveModelUnion::RelationMethods::Paginate
 
-    attr_accessor :union_models, :union_relations, :union_attributes,  :union_query, :model
+    attr_accessor :union_models, :union_relations, :union_attributes,  :union_query, :model, :union_query_elements
 
     # Constructor
     #
@@ -55,17 +55,23 @@ module ActiveModelUnion
     def initialize_union_attributes(union_attributes)
       union_relations.each do |union_model, relation|
         model_attributes = relation.new.attributes.keys
-        select_sentence_for_model =
-          union_attributes.map do |attribute_name|
-            if model_attributes.include? attribute_name.to_s
-              "#{relation.table_name}.#{attribute_name.to_s}"
-            else
-              ' null'
-            end
-          end
+        select_sentence_for_model = union_attributes_for_select(relation, model_attributes)
         select_sentence_for_model << "\'#{union_model.to_s}\' as \'type\'"
-        #select_sentence_for_model << "#{relation.table_name}.id as \'id\'"
         union_relations[union_model] = relation.select(select_sentence_for_model.join(','))
+      end
+    end
+    
+    # Creates the select sentences for the given union_attributes and relation
+    # depending if the given relation responds to the attribute or not
+    #
+    # @return [Array]
+    def union_attributes_for_select(relation, model_attributes)
+      union_attributes.map do |attribute_name|
+        if model_attributes.include? attribute_name.to_s
+          "#{relation.table_name}.#{attribute_name.to_s}"
+        else
+          ' null'
+        end
       end
     end
   end

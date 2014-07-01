@@ -14,4 +14,5 @@ group :development, :test do
   gem 'rb-fsevent'
   gem 'growl'
   gem 'sinatra'
+  gem 'pry'
 end

@@ -120,6 +120,7 @@ DEPENDENCIES
   guard
   guard-bundler
   guard-rspec
+  pry
   rack-test
   rake
   rb-fsevent

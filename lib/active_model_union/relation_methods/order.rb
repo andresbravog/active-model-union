@@ -27,25 +27,16 @@ module ActiveModelUnion
       #
       # @return [Array<String>]
       def order_union_attributes(*args)
-        order_union_attrs = []
-        args.each do |arg|
+        args.flat_map do |arg|
           case arg
           when String, Symbol
-            sentence = arg.to_s
-            order_union_attrs << arg
+            arg
           when Hash
-            arg.each do |field, order|
-              order_union_attrs <<
-              case order
-              when :asc, :desc
-                "#{field.to_s} #{order.to_s}"
-              else
-                field.to_s
-              end
+            arg.map do |field, order|
+              [:asc, :desc].include?(order) ? "#{field.to_s} #{order.to_s}" : field.to_s
             end
           end
         end
-        order_union_attrs
       end
     end
   end
