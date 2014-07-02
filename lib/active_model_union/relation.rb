@@ -7,6 +7,7 @@ module ActiveModelUnion
     include ActiveModelUnion::RelationMethods::Count
     include ActiveModelUnion::RelationMethods::Limit
     include ActiveModelUnion::RelationMethods::Paginate
+    include ActiveModelUnion::RelationMethods::Offset
 
     attr_accessor :union_models, :union_relations, :union_attributes,  :union_query, :model, :union_query_elements
 

@@ -2,16 +2,16 @@ require 'active_support/concern'
 
 module ActiveModelUnion
   module RelationMethods
-    module Limit
+    module Offset
       extend ActiveSupport::Concern
 
-      # Limits the union sentence
+      # Offsets the union sentence
       #
-      # @param max [Integer] max limit of results to show
+      # @param value [Integer] offset of results to show
       # @param offset [Integer] (optional) offset in the search
       # @return [ActiveModelUnion::Relation]
-      def limit(max)
-        limit_union_sentence(max)
+      def offset(value)
+        offset_union_sentence(value)
         self
       end
 
@@ -20,12 +20,12 @@ module ActiveModelUnion
       # generagetes the order sql sentence
       # from the union based on ht given args
       #
-      # @param max [Integer] max limit of results to show
+      # @param value [Integer] value offset of results to show
       # @param offset [Integer] (optional) offset in the search
       # @return [String]
-      def limit_union_sentence(max)
+      def offset_union_sentence(value)
         @union_query_elements ||= {}
-        @union_query_elements[:limit] = Arel::Nodes::Limit.new(max.to_i)
+        @union_query_elements[:offset] = Arel::Nodes::Offset.new(value.to_i)
       end
     end
   end

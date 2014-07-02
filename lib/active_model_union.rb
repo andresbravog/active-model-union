@@ -25,5 +25,6 @@ module ActiveModelUnion
     autoload :Order
     autoload :Paginate
     autoload :Where
+    autoload :Offset
   end
 end

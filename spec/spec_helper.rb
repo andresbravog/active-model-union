@@ -15,6 +15,8 @@ require 'active_model_union'
 require 'arel'
 require 'pry'
 
+WebMock.disable_net_connect!(allow: "codeclimate.com")
+
 Dir[File.expand_path('../models/**/*.rb', __FILE__)].each {|file| require file }
 
 RSpec.configure do |config|
