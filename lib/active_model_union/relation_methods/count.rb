@@ -10,9 +10,9 @@ module ActiveModelUnion
       #
       # @param args accepts the same args that the active record one
       def count(*args)
-        union_relations.sum do |union_model, relation|
+        union_relations.map do |union_model, relation|
           relation.send(:count, *args)
-        end
+        end.reduce(:+)
       end
     end
   end
