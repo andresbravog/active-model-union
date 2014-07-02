@@ -7,8 +7,6 @@ CodeClimate::TestReporter.start
 
 require 'simplecov'
 SimpleCov.start
-require 'coveralls'
-Coveralls.wear!
 
 require 'rspec'
 require 'rack/test'
