@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ActiveModelUnion::Relation do
   let(:relation) { ActiveModelUnion::Relation.new(Resource, Resource.union_models, Resource.union_attributes) }
 
-  describe '#all' do
+  describe '#count' do
     subject { relation.count }
     it 'calls each realtion with count' do
       expect(Task).to receive(:count).and_call_original

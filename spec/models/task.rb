@@ -6,7 +6,7 @@ class Task
     # some QueryMethods
     def select(*args); return self; end
     def where(*args); return self; end
-    def join(*args); return self; end
+    def joins(*args); return self; end
     def limit(*args); return self; end
     def offset(*args); return self; end
     def count(*args); return 0; end
