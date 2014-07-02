@@ -5,6 +5,7 @@ gemspec
 
 gem 'rake'
 gem 'coveralls', require: false
+gem 'codeclimate-test-reporter', group: :test, require: nil
 gem 'rspec'
 
 group :development, :test do
