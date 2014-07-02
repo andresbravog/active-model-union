@@ -40,7 +40,7 @@ module ActiveModelUnion
       #
       # @return [Integer]
       def previous_page
-        return if page == 0
+        return if page == 1
         page - 1
       end
 
@@ -48,7 +48,7 @@ module ActiveModelUnion
       #
       # @return [Integer]
       def next_page
-        return if page == total_pages
+        return if page >= total_pages
         page + 1
       end
 
