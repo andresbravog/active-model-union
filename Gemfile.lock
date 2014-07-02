@@ -4,6 +4,7 @@ PATH
     active-model-union (0.0.1)
       activemodel
       activesupport
+      arel
 
 GEM
   remote: http://rubygems.org/
@@ -18,6 +19,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.5)
+    arel (4.0.2)
     builder (3.2.2)
     celluloid (0.15.2)
       timers (~> 1.1.0)

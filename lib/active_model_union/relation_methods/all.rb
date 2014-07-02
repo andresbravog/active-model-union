@@ -29,11 +29,12 @@ module ActiveModelUnion
       def generate_union_query
         query = union_relations.map { |model_name, relation| relation.to_sql }
                                .join("\n UNION \n")
-        return query unless union_query_elements.empty?
+        return query if union_query_elements.empty?
         query += "\n"
-        query += union_query_elements[:order].to_sql if union_query_elements[:order]
+        query += union_query_elements[:order] if union_query_elements[:order]
         query += union_query_elements[:limit].to_sql if union_query_elements[:limit]
         query += union_query_elements[:offset].to_sql if union_query_elements[:offset]
+        query
       end
 
       # Zips the values with the union attributes in order to

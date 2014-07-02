@@ -15,6 +15,10 @@ class Conversation
     def table_name
       self.to_s.downcase
     end
+
+    def to_sql
+      "SELECT `#{table_name}`.* FORM `#{table_name}` WHERE `#{table_name}`.`id` > 0"
+    end
   end
 
   def attributes

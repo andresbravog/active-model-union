@@ -20,6 +20,7 @@ module ActiveModelUnion
       @model = model
       @union_models = union_models
       @union_attributes = union_attributes
+      @union_query_elements = {}
       initialize_union_relations(union_relations)
       initialize_union_attributes(union_attributes)
     end

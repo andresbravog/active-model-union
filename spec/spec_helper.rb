@@ -11,6 +11,7 @@ require 'rspec'
 require 'rack/test'
 require 'webmock/rspec'
 require 'active_model_union'
+require 'arel'
 require 'pry'
 
 Dir[File.expand_path('../models/**/*.rb', __FILE__)].each {|file| require file }
