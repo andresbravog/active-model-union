@@ -1,3 +1,6 @@
+[![Code Climate](https://codeclimate.com/github/andresbravog/active-model-union.png)](https://codeclimate.com/github/andresbravog/active-model-union)
+[![Build Status](https://travis-ci.org/andresbravog/active-model-union.svg?branch=master)](https://travis-ci.org/andresbravog/active-model-union)
+
 # `ActiveModelUnion::Base`
 
 New `ActiveModel` class base that allows you to define `n` different `ActiveRecord` models to search from:
