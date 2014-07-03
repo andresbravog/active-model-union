@@ -32,8 +32,8 @@ module ActiveModelUnion
         return query if union_query_elements.empty?
         union_query_sentencences = []
         union_query_sentencences << union_query_elements[:order] if union_query_elements[:order]
-        union_query_sentencences += union_query_elements[:limit].to_sql if union_query_elements[:limit]
-        union_query_sentencences += union_query_elements[:offset].to_sql if union_query_elements[:offset]
+        union_query_sentencences << union_query_elements[:limit].to_sql if union_query_elements[:limit]
+        union_query_sentencences << union_query_elements[:offset].to_sql if union_query_elements[:offset]
         query + "\n" + union_query_sentencences.join(' ')
       end
 

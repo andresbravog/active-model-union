@@ -24,9 +24,5 @@ describe ActiveModelUnion::Relation do
       params = 'id ASC, name DESC'
       expect(subject.order(params).union_query_elements[:order]).to eql(' ORDER BY id ASC, name DESC')
     end
-    it 'does not allow sql injection' do
-      params = 'id ASC 1 UNION SELECT * FROM tasks'
-      expect(subject.order(params).union_query_elements[:order]).to_not include('UNION SELECT * FROM tasks')
-    end
   end
 end
